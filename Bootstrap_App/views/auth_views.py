@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import redirect, render
@@ -40,3 +40,13 @@ def register(request):
     else:
         form = PatientsForm()
     return render(request, 'register.html', {'form': form})
+
+def user_logout(request):
+    if request.user.is_authenticated:
+        logout(request)
+        request.session.flush()
+        messages.success(request, "You are now logged out.")
+        return redirect('login')
+    else:
+        messages.error(request, "you are not logged in.")
+        return redirect('login')

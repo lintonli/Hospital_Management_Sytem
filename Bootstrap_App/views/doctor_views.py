@@ -13,6 +13,6 @@ def doctor_dashboard(request):
         return render(request, 'login.html', {'message': 'You are not authorized to view this page.'})
 
     doctor = request.user.doctors  # The logged-in doctor's profile
-    appointments = Appointment.objects.filter(doctor_name=doctor)  # Filter appointments for the logged-in doctor
+    appointments = Appointment.objects.filter(doctor_name=doctor).select_related('patient_name')  # Filter appointments for the logged-in doctor
 
     return render(request, 'doctor_dashboard.html', {'appointments': appointments})

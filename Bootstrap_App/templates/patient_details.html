@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{#    <h1>My Appointments</h1>#}
+    <div class="container mt-5">
+{#        <h2 class="mb-4">Welcome, Dr. {{ request.user.doctors.name }}</h2>#}
+        <h3>Patient Details</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <td>{{ patient.name }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ patient.gender }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ patient.age }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ patient.profession }}</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>{{ patient.mobile }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
