@@ -25,7 +25,7 @@ def book_appointment(request):
 
 
                 messages.success(request, f'Your appointment has been booked successfully!')
-                return redirect('home')
+                return redirect('appointment')
         else:
             form = AppointmentForm()
 

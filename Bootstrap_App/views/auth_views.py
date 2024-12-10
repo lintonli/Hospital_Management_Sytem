@@ -36,9 +36,11 @@ def register(request):
         form = PatientsForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Successfully registered.")
             return redirect('login')
     else:
         form = PatientsForm()
+    messages.error(request, "registration failed")
     return render(request, 'register.html', {'form': form})
 
 def user_logout(request):

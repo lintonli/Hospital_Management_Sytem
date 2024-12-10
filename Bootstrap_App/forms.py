@@ -11,7 +11,7 @@ class PatientsForm(forms.ModelForm):
     gender= forms.ChoiceField(choices=(('M','Male'),('F','Female')),required=True)
     age= forms.IntegerField(required=True)
     profession=forms.CharField(max_length=100)
-    mobile= forms.CharField(max_length=100)
+    # mobile= forms.CharField(max_length=100)
 
     class Meta:
         model=Patients
